@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Wireframe styling. Greyscale only (palette is locked in tailwind.config.ts).
+   Every class here is structural; the visual design phase replaces this file. */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-black font-sans antialiased; }
+  a { @apply underline underline-offset-2; }
+  a:hover { @apply no-underline; }
+  :focus-visible { outline: 3px solid #111; outline-offset: 2px; }
+  h1 { @apply text-3xl font-bold leading-tight md:text-5xl; }
+  h3 { @apply text-base; }
+}
+
+@layer components {
+  .container-wf { @apply mx-auto w-full max-w-site px-4 md:px-6; }
+  .skip-link { @apply sr-only; }
+  .skip-link:focus { @apply not-sr-only absolute left-2 top-2 z-50 bg-white p-2; }
+
+  .site-header { @apply sticky top-0 z-30 border-b border-g-300 bg-white; }
+  .logo { @apply text-xl font-black tracking-tight no-underline; }
+  .nav-link { @apply block cursor-pointer rounded px-3 py-2 text-sm no-underline hover:bg-g-50; }
+  .nav-dd > summary { list-style: none; }
+  .nav-dd > summary::-webkit-details-marker, .mobile-menu > summary::-webkit-details-marker { display: none; }
+  .dd-panel { @apply absolute left-0 top-full z-40 w-72 border border-g-300 bg-white p-2 shadow-sm; }
+  .mobile-menu > summary { list-style: none; }
+  .mobile-panel { @apply absolute left-0 right-0 top-full max-h-[80vh] overflow-y-auto border-b border-g-300 bg-white p-4; }
+
+  .btn { @apply inline-flex cursor-pointer items-center gap-2 rounded border border-black bg-white px-4 py-2 text-sm font-semibold no-underline hover:bg-g-50; }
+  .btn-primary { @apply bg-black text-white hover:bg-g-600; }
+  .btn[disabled] { @apply cursor-not-allowed opacity-50; }
+  .input { @apply w-full rounded border border-g-600 bg-white px-3 py-2 text-sm; }
+  .field-error { @apply mt-1 text-sm font-semibold text-black; }
+  .field-error::before { content: '⚠ '; }
+
+  .page { @apply py-6; }
+  .breadcrumbs ol { @apply flex flex-wrap gap-1 text-sm text-g-600; }
+  .breadcrumbs li + li::before { content: '/'; @apply mx-1; }
+  .page-head { @apply mb-4 mt-4 max-w-4xl; }
+  .answer-block { @apply my-6 max-w-3xl border-2 border-black bg-g-50 p-5; }
+  .answer-q { @apply mb-2 text-xs font-bold uppercase tracking-wider text-g-600; }
+  .answer-a { @apply text-lg leading-relaxed; }
+
+  .wf-section { @apply relative my-10 border-t border-g-300 pt-8; }
+  .wf-h2 { @apply mb-4 text-2xl font-bold md:text-3xl; }
+  .wf-intro { @apply mb-4 max-w-prose text-g-600; }
+  .prose-wf { @apply max-w-prose space-y-4 leading-relaxed; }
+  .prose-wf h2 { @apply mt-10 text-2xl font-bold; }
+  .prose-wf h3 { @apply mt-6 font-bold; }
+  .prose-wf ul { @apply list-disc space-y-1 pl-6; }
+  .prose-wf ol { @apply list-decimal space-y-1 pl-6; }
+  .list-ul { @apply max-w-prose list-disc space-y-2 pl-6; }
+  .list-ol { @apply max-w-prose list-decimal space-y-2 pl-6; }
+  .steps { @apply grid gap-4 md:grid-cols-5; }
+  .step { @apply relative border border-g-300 bg-white p-4; }
+  .step-n { @apply mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm font-bold text-white; }
+  .card { @apply flex flex-col gap-2 border border-g-300 bg-white p-4; }
+  .card-meta { @apply text-xs uppercase tracking-wider text-g-600; }
+  .card-cta { @apply mt-auto pt-2 text-sm font-semibold; }
+  .card-link { @apply block h-full border border-g-300 bg-white p-4 no-underline hover:bg-g-50; }
+  .metric { @apply flex flex-col gap-1 border border-g-300 bg-g-50 p-4; }
+  .metric-v { @apply text-2xl font-black; }
+  .metric-l { @apply text-sm text-g-600; }
+  .quote blockquote { @apply border-l-4 border-black pl-4 text-xl italic; }
+  .quote figcaption { @apply mt-2 pl-5 text-sm text-g-600; }
+  .facts { @apply grid max-w-3xl border border-g-300; }
+  .facts > div { @apply grid grid-cols-1 gap-1 border-b border-g-300 p-3 sm:grid-cols-3; }
+  .facts > div:last-child { @apply border-b-0; }
+  .facts dt { @apply font-semibold; }
+  .facts dd { @apply sm:col-span-2; }
+  .table-wrap { @apply overflow-x-auto; }
+  .wf-table { @apply w-full min-w-[36rem] border-collapse text-left text-sm; }
+  .wf-table caption { @apply mb-2 text-left text-sm text-g-600; }
+  .wf-table th, .wf-table td { @apply border border-g-300 p-3 align-top; }
+  .wf-table thead th { @apply bg-g-100; }
+  .wf-table tbody th { @apply bg-g-50 font-semibold; }
+  .faq { @apply grid max-w-3xl gap-4; }
+  .faq-item { @apply border border-g-300 bg-white p-4; }
+  .faq-item h3 { @apply mb-1 font-semibold; }
+  .byline { @apply my-8 border-y border-g-300 py-3 text-sm text-g-600; }
+  .cta-band { @apply border-2 border-black bg-g-100 p-6 md:p-10; }
+
+  .img-slot { @apply m-0 flex w-full items-center justify-center border border-dashed border-g-600 bg-g-100 p-4 text-center; }
+  .ph { @apply inline-block rounded border border-dashed border-black bg-g-100 px-1.5 py-0.5 font-mono text-xs font-semibold text-black; }
+  .draft-tag { @apply ml-2 inline-block rounded bg-g-600 px-1.5 py-0.5 align-middle text-[10px] font-bold uppercase tracking-wider text-white; }
+
+  .site-footer { @apply mt-16 border-t-2 border-black bg-g-50; }
+  .footer-h { @apply mb-2 text-sm font-bold; }
+
+  .chip { @apply cursor-pointer rounded-full border border-black bg-white px-3 py-1.5 text-sm; }
+  .chip[aria-pressed='true'], .chip-on { @apply bg-black text-white; }
+  .progress { @apply h-2 w-full overflow-hidden rounded bg-g-100; }
+  .progress > span { @apply block h-full bg-black transition-all; }
+
+  /* 12-column grid overlay */
+  .grid-overlay { @apply pointer-events-none fixed inset-0 z-0; }
+  .grid-col { background: rgba(0, 0, 0, 0.025); }
+  html.blueprint .grid-col { background: rgba(0, 0, 0, 0.06); }
+  main, .site-footer { position: relative; z-index: 1; }
+
+  /* Blueprint toggle + annotations */
+  .bp-toggle { @apply fixed bottom-4 right-4 z-50 rounded-full border-2 border-black bg-white px-4 py-2 text-sm font-bold shadow-md; }
+  .bp-toggle[aria-pressed='true'] { @apply bg-black text-white; }
+  .bp-strip { @apply mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 border border-dashed border-black bg-white p-2 font-mono text-[11px] leading-snug; }
+  .bp-page { @apply mb-4 border-2 border-solid bg-g-100; }
+  .bp-title { @apply mr-2; }
+  .bp-lenses { @apply inline-flex gap-1; }
+  .bp-badge { @apply rounded border border-black px-1 font-bold; }
+  .bp-seo { @apply bg-white; }
+  .bp-aeo { @apply bg-g-100; }
+  .bp-geo { @apply bg-g-300; }
+  .bp-gseo { @apply bg-black text-white; }
+  .bp-status-skeleton { @apply bg-white; }
+  .bp-status-draft { @apply bg-g-100; }
+  .bp-status-final { @apply bg-black text-white; }
+  html.blueprint .answer-block { outline: 3px dashed #111; outline-offset: 4px; }
+  html.blueprint [data-schema] { outline: 2px dotted #595959; outline-offset: 6px; }
+  html.blueprint main a[href^='/'] { outline: 1px solid #111; background: #e8e8e8; }
+}
