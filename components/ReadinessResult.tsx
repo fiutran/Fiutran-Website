@@ -1,21 +1,14 @@
 'use client';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { decode, score, type Result } from '@/lib/readiness';
-import { submit } from '@/lib/submit';
 
 export function ReadinessResult() {
-  const router = useRouter();
   const [result, setResult] = useState<Result | null | undefined>(undefined);
-  const [answers, setAnswers] = useState('');
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const a = new URLSearchParams(window.location.search).get('a');
     const scores = decode(a);
-    setAnswers(a ?? '');
     setResult(scores ? score(scores) : null);
   }, []);
 
@@ -66,33 +59,6 @@ export function ReadinessResult() {
           Compare engagement models →
         </Link>
       </div>
-      <form
-        className="max-w-xl border border-g-300 p-4"
-        action="/thank-you/assessment/"
-        method="get"
-        noValidate
-        onSubmit={async (e) => {
-          e.preventDefault();
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setError('Enter a valid email address.');
-          const r = await submit('assessment', { email, answers, level: result.level, score: result.score });
-          if (r.ok) router.push(r.redirect);
-        }}
-      >
-        <label htmlFor="res-email" className="block font-semibold">
-          Email me this result
-        </label>
-        <div className="mt-2 flex flex-col gap-2 sm:flex-row">
-          <input id="res-email" type="email" autoComplete="email" className="input" placeholder="you@company.com" value={email} onChange={(e) => setEmail(e.target.value)} aria-invalid={!!error} />
-          <button type="submit" className="btn btn-primary">
-            Email me this
-          </button>
-        </div>
-        {error && (
-          <p role="alert" className="field-error">
-            {error}
-          </p>
-        )}
-      </form>
     </div>
   );
 }

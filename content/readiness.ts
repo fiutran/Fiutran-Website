@@ -110,6 +110,7 @@ export const readinessPage: PageContent = {
     {
       kind: 'table',
       heading: 'What do the three readiness levels mean?',
+      intro: 'Curious what a result looks like? [[/ai-readiness-check/result/?a=12112121|See a sample result]].',
       caption: 'AI readiness levels',
       columns: ['Level', 'Score', 'What it means', 'Typical next step'],
       rows: [

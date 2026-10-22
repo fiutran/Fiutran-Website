@@ -62,7 +62,7 @@ export function Inventory({ rows }: { rows: Row[] }) {
             {sorted.map((r) => (
               <tr key={r.path}>
                 <th scope="row">
-                  <Link href={r.path === '/404/' ? '/this-page-does-not-exist/' : r.path}>{r.path}</Link>
+                  <Link href={r.path === '/404/' ? '/404.html' : r.path}>{r.path}</Link>
                 </th>
                 <td>{r.primaryQuery}</td>
                 <td>{r.lenses || '–'}</td>

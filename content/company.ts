@@ -138,7 +138,7 @@ export const careers: PageContent = {
 };
 
 export const atAGlance: PageContent = {
-  answer: `${entity.description} It is not an AI consulting firm: it designs, builds and runs working systems, often as a client's CTO on demand, and also builds its own product, Fiunify.`,
+  answer: `${entity.description} It is not an AI consulting firm: it designs, builds and runs working systems, often as a client’s CTO on demand, and builds its own product, Fiunify.`,
   blocks: [
     {
       kind: 'slot',
