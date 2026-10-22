@@ -13,6 +13,7 @@ import { FinalCta } from '@/components/FinalCta';
 import { ImageSlot } from '@/components/ImageSlot';
 import { JsonLd } from '@/components/JsonLd';
 import { Ph } from '@/components/Ph';
+import { Draft } from '@/components/Draft';
 import { Section } from '@/components/Section';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { getPage } from '@/lib/registry';
@@ -71,6 +72,17 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <div className="proof-product mt-6">
+          <p className="card-meta">
+            {home.fiunify.eyebrow}
+            <Draft />
+          </p>
+          <h3 className="text-xl font-bold">{home.fiunify.heading}</h3>
+          <p className="mt-2 max-w-prose">{home.fiunify.text}</p>
+          <Link href={home.fiunify.href} className="card-cta">
+            {home.fiunify.linkLabel} →
+          </Link>
+        </div>
         <p className="mt-4">
           <Link href="/work/">See all our work</Link>
         </p>
@@ -149,8 +161,34 @@ export default function Home() {
               {/* Entity sentence, plain text: identical to content/entity.ts description */}
               <p className="mt-6 text-sm text-g-600">{entity.description}</p>
             </div>
-            <div className="col-span-12 lg:col-span-5">
-              <ImageSlot label={home.heroImage} ratio="aspect-[4/3]" />
+            <div
+              id="consultant-vs-partner"
+              className="col-span-12 lg:col-span-5"
+              data-bp={JSON.stringify({ purpose: 'The brand idea in the first 5 seconds: consultant vs partner', intent: 'AI partner vs AI consultant', lenses: ['AEO', 'GEO'], cta: 'Compare in depth', owner: ctx.owner, status: ctx.status })}
+            >
+              <table className="contrast">
+                <caption>{home.contrast.caption}</caption>
+                <thead>
+                  <tr>
+                    {home.contrast.columns.map((c) => (
+                      <th key={c} scope="col">
+                        {c}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {home.contrast.rows.map(([them, us]) => (
+                    <tr key={them}>
+                      <td className="contrast-them">{them}</td>
+                      <td className="contrast-us">{us}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="mt-2 text-sm">
+                <Link href="/compare/ai-partner-vs-ai-consultant/">AI partner vs AI consultant: the full comparison</Link>
+              </p>
             </div>
           </div>
         </Section>

@@ -4,7 +4,7 @@ import type { PageContent } from './types';
 
 export const howWeWork: PageContent = {
   answer:
-    'Fiutran works in five steps with one team throughout: Understand how your business actually runs, Design the solution with your people, Build working systems in short cycles, Run and improve them in production, then Scale what works across the business. Nothing is handed over to someone who was not in the room.',
+    'Fiutran works in five steps with the same team throughout: understand how the business actually runs, design a solution with the people who’ll use it, build working software in short cycles, run and improve it in production, then scale what works. The team that learned your business ships and runs it.',
   heroImage: 'Process diagram: five-step method',
   blocks: [
     {
@@ -13,8 +13,8 @@ export const howWeWork: PageContent = {
       heading: '1. Understand: how does your business actually run?',
       draft: true,
       paras: [
-        'We spend time inside the business: shadowing the people who do the work, mapping processes, data and systems, and finding where time, money and customers are lost. Typical duration: {{ph:typical duration per step}}.',
-        'Output: a shared map of how the business runs today and a ranked list of problems worth solving.',
+        'We spend time inside the business with the people who actually do the work — not in a workshop. We map processes, data and systems, and find where time, money and customers are quietly lost.',
+        'Typical duration: {{ph:typical duration per step}}.',
       ],
       bp: { purpose: 'Explain step 1 and why it differs from consulting', intent: 'How does an AI partner start?', lenses: ['AEO', 'GEO'] },
     },
@@ -23,7 +23,7 @@ export const howWeWork: PageContent = {
       id: 'design',
       heading: '2. Design: what exactly should we build?',
       draft: true,
-      paras: ['We design the solution with the people who will use it: scope, architecture, data, guardrails and how success will be measured. Output: a scoped first release that can start building immediately.'],
+      paras: ['We design with your people, not for them. Scope, architecture, data, guardrails and success measures — built with the people who’ll use it, so nothing gets lost in translation.'],
       bp: { purpose: 'Explain step 2', intent: 'Solution design', lenses: ['AEO'] },
     },
     {
@@ -31,7 +31,7 @@ export const howWeWork: PageContent = {
       id: 'build',
       heading: '3. Build: how fast do we ship?',
       draft: true,
-      paras: ['We build in short cycles and put working software in front of real users early. Everything runs in accounts you own, with tests and documentation from the start.'],
+      paras: ['Short cycles. Working software in front of real users early. Everything runs in accounts you own. The same team that learned your business builds it.'],
       bp: { purpose: 'Explain step 3', intent: 'How fast can it be built?', lenses: ['AEO'] },
     },
     {
@@ -39,7 +39,7 @@ export const howWeWork: PageContent = {
       id: 'run',
       heading: '4. Run: who looks after it after launch?',
       draft: true,
-      paras: ['We do. We monitor, support and improve what we built, and report on outcomes. This is the step consultants and most agencies skip, and the one that decides whether a system creates value.'],
+      paras: ['We stay. We monitor, support and improve what we built and report on outcomes. This is the step most agencies quietly remove from scope. We don’t.'],
       bp: { purpose: 'Explain step 4, the core differentiator', intent: 'What happens after launch?', lenses: ['AEO', 'GEO'] },
     },
     {
@@ -47,7 +47,7 @@ export const howWeWork: PageContent = {
       id: 'scale',
       heading: '5. Scale: what happens once it works?',
       draft: true,
-      paras: ['We extend what works to more teams, processes or markets, and invest in the data foundations that make each next step faster and cheaper.'],
+      paras: ['Once it works in one place, we extend it: more teams, more processes, more markets. Each step is faster because the data foundations are already in place.'],
       bp: { purpose: 'Explain step 5', intent: 'How to scale AI', lenses: ['AEO'] },
     },
     {

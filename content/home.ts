@@ -2,30 +2,27 @@ import { entity } from './entity';
 import type { Block, FAQ } from './types';
 
 export const home = {
-  positioning: 'We go into your business, learn how it actually runs, then design, build and run the systems that move it forward.',
-  heroImage: 'Hero visual: team at client workshop',
+  positioning: 'Most AI projects end with a deck and a handshake. Ours end when your business actually works differently.',
   answer:
-    'Fiutran designs, builds and runs AI systems and digital-transformation programs for growing businesses. Unlike a consultant that hands over a deck, Fiutran learns how your business works, ships working systems and stays to run them, often acting as your CTO on demand: technical leadership plus a team that ships.',
+    'Fiutran designs, builds and runs AI systems for growing businesses. We learn how the business actually works — not from a brief, but from being inside it — then ship working systems and stay to run them. For many clients we act as CTO on demand: technical leadership plus a team that delivers.',
   ctas: [
     { label: 'Book a call', href: '/contact/' },
     { label: 'Take the AI readiness check', href: '/ai-readiness-check/' },
   ],
   blocks: [
     {
-      kind: 'table',
-      id: 'consultant-vs-partner',
-      heading: 'What is the difference between a consultant and a partner?',
-      intro: 'The idea the whole of Fiutran is built on. [[/compare/ai-partner-vs-ai-consultant/|Compare an AI partner and an AI consultant in depth]].',
-      caption: 'Consultant vs partner, the core contrast',
-      columns: ['Aspect', 'Consultant', 'Partner (Fiutran)'],
-      rows: [
-        ['Role', entity.contrast[0][0], entity.contrast[0][1]],
-        ['What you get', entity.contrast[1][0], entity.contrast[1][1]],
-        ['Deliverable', entity.contrast[2][0], entity.contrast[2][1]],
-        ['After launch', entity.contrast[3][0], entity.contrast[3][1]],
-        ['Understanding', 'Interviews and frameworks', 'We go into the business and learn how it actually runs'],
+      kind: 'cards',
+      id: 'cto-on-demand',
+      heading: 'Need technical leadership, not another vendor?',
+      intro:
+        'For many clients Fiutran acts as their **CTO on demand**: technical leadership plus a team that ships, without the cost of a full-time CTO and in-house team.',
+      cols: 3,
+      cards: [
+        { title: 'Who it is for', text: 'Founders and owners making technology decisions without a technical leader.' },
+        { title: 'What you get', text: 'Strategy, architecture, vendor decisions and a team that builds and runs it.' },
+        { title: 'How it runs', text: 'An agreed share of senior time plus delivery capacity, adjusted monthly.', href: '/cto-on-demand/', linkLabel: 'See CTO on demand' },
       ],
-      bp: { purpose: 'State the core positioning in a liftable table', intent: 'AI partner vs AI consultant', lenses: ['AEO', 'GEO'], cta: 'Compare in depth' },
+      bp: { purpose: 'Present the flagship offer', intent: 'What is a CTO on demand?', lenses: ['SEO', 'GEO'], cta: 'CTO on demand' },
     },
     {
       kind: 'steps',
@@ -47,20 +44,6 @@ export const home = {
       id: 'what-we-build',
       heading: 'What do we build?',
       bp: { purpose: 'Route to the 7 service pages', intent: 'AI services for SMEs', lenses: ['SEO', 'GSEO'], cta: 'Open a service' },
-    },
-    {
-      kind: 'cards',
-      id: 'cto-on-demand',
-      heading: 'Need technical leadership, not another vendor?',
-      intro:
-        'For many clients Fiutran acts as their **CTO on demand**: technical leadership plus a team that ships, without the cost of a full-time CTO and in-house team.',
-      cols: 3,
-      cards: [
-        { title: 'Who it is for', text: 'Founders and owners making technology decisions without a technical leader.' },
-        { title: 'What you get', text: 'Strategy, architecture, vendor decisions and a team that builds and runs it.' },
-        { title: 'How it runs', text: 'An agreed share of senior time plus delivery capacity, adjusted monthly.', href: '/cto-on-demand/', linkLabel: 'See CTO on demand' },
-      ],
-      bp: { purpose: 'Present the flagship offer', intent: 'What is a CTO on demand?', lenses: ['SEO', 'GEO'], cta: 'CTO on demand' },
     },
     {
       kind: 'slot',
@@ -107,6 +90,25 @@ export const home = {
       bp: { purpose: 'Freshness and topical authority; entry to the insights cluster', intent: 'Learn about AI for SMEs', lenses: ['SEO', 'GEO', 'GSEO'], cta: 'Read an insight' },
     },
   ] as Block[],
+  // Hero contrast: the brand idea, stated before anything else. Consultant column is struck through.
+  contrast: {
+    caption: 'Consultant vs partner',
+    columns: ['A consultant gives you', 'Fiutran gives you'],
+    rows: [
+      [entity.contrast[1][0], entity.contrast[1][1]],
+      [entity.contrast[2][0], entity.contrast[2][1]],
+      [entity.contrast[3][0], entity.contrast[3][1]],
+      ['Interviews and frameworks', 'A team inside your business'],
+    ] as [string, string][],
+  },
+  // Proof that Fiutran builds products, not just services. DRAFT stand-in copy for Aarti to replace.
+  fiunify: {
+    eyebrow: 'Our own product',
+    heading: 'We don’t just build for clients. We build our own.',
+    text: 'Fiunify is Fiutran’s own AI product for social relationships and connection. We design, build and run it ourselves, so the decisions we help clients make (what to build, what it costs to run, how to keep users) are ones we live with every day.',
+    linkLabel: 'See Fiunify, our own product',
+    href: '/products/fiunify/',
+  },
   faq: [
     { q: 'What does Fiutran do?', a: 'Fiutran designs, builds and runs AI systems and digital-transformation programs for growing businesses, often as their CTO on demand.' },
     { q: 'Is Fiutran an AI consulting firm?', a: 'No. Consultants advise and hand over a deck; Fiutran builds and runs the working system. See [[/compare/ai-partner-vs-ai-consultant/|AI partner vs AI consultant]].' },

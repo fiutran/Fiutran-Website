@@ -18,7 +18,7 @@ export const pages: PageEntry[] = [
     title: 'Fiutran: AI partner and on-demand CTO for growing businesses',
     metaDescription:
       'Fiutran is an AI and digital-transformation partner. We learn how your business works, then design, build and run the systems that move it forward.',
-    h1: 'Your AI partner, not another AI consultant',
+    h1: 'We go in. We build it. We run it.',
     label: 'Home',
     pageType: 'home',
     primaryQuery: 'Who can design, build and run AI systems for my business?',
@@ -30,7 +30,6 @@ export const pages: PageEntry[] = [
     status: 'draft',
     related: ['/how-we-work/', '/cto-on-demand/', '/services/', '/compare/ai-partner-vs-ai-consultant/'],
     placeholdersNeeded: [
-      'Hero visual: team at client workshop',
       'client result metric',
       'projects delivered',
       'average time to first working system',
@@ -47,7 +46,7 @@ export const pages: PageEntry[] = [
     title: 'How we work: Understand, Design, Build, Run, Scale | Fiutran',
     metaDescription:
       'The Fiutran method in five steps: we understand your business, design the solution, build it, run it with you and scale what works.',
-    h1: 'How we work: Understand → Design → Build → Run → Scale',
+    h1: 'Five steps. One team. Nothing handed over.',
     label: 'How we work',
     navOrder: 1,
     pageType: 'method',

@@ -10,7 +10,7 @@ export const entity = {
   legalName: { value: null, placeholder: 'legal company name' } as Fact,
   // The one sentence. Used verbatim on Home, at-a-glance, footer, schema and llms.txt.
   description:
-    'Fiutran is an AI and digital-transformation partner that acts as an on-demand CTO for growing businesses. We learn how your business works, then design, build and run the systems that move it forward.',
+    'Fiutran is an AI and digital-transformation partner for growing businesses: we learn how the business actually runs, then build and run the systems that move it forward — no hand-off, same team throughout.',
   shortDescription: 'AI and digital-transformation partner; on-demand CTO for growing businesses.',
   category: 'AI and digital-transformation partner',
   notA: 'Fiutran is not an AI consulting firm: it designs, builds and runs working systems instead of handing over advice.',
