@@ -28,9 +28,9 @@ export default async function Page({ params }: Props) {
   const page = getPage(path);
   const cs = getCaseStudy(s.caseStudy.split('/')[2]);
   const blocks: Block[] = [
-    { kind: 'list', heading: 'Who is it for?', items: s.whoFor, bp: { purpose: 'Qualify the visitor', intent: `Is ${s.name.toLowerCase()} for me?`, lenses: ['AEO', 'SEO'] } },
+    { kind: 'list', heading: 'Who is it for?', items: s.whoFor, bp: { purpose: 'Qualify the visitor', intent: `Is ${s.name} right for me?`, lenses: ['AEO', 'SEO'] } },
     { kind: 'list', heading: 'What problems does it solve?', items: s.problems, bp: { purpose: 'Match the visitor’s pain to the service', intent: page.primaryQuery, lenses: ['AEO', 'GSEO'] } },
-    { kind: 'list', heading: 'What do we deliver?', items: s.deliverables, bp: { purpose: 'Concrete deliverables (liftable list)', intent: `What does ${s.name.toLowerCase()} include?`, lenses: ['AEO', 'GEO'], schema: 'Service' } },
+    { kind: 'list', heading: 'What do we deliver?', items: s.deliverables, bp: { purpose: 'Concrete deliverables (liftable list)', intent: `What does ${s.name} include?`, lenses: ['AEO', 'GEO'], schema: 'Service' } },
     { kind: 'steps', heading: 'How does the engagement run?', steps: s.steps, bp: { purpose: 'Show the process to reduce risk', intent: 'How does it work?', lenses: ['AEO'] } },
     {
       kind: 'facts',
@@ -40,7 +40,7 @@ export default async function Page({ params }: Props) {
         ['Price range', servicePlaceholders.price],
         ['Engagement model', '[[/engagement-models/|See engagement models and pricing]]'],
       ],
-      bp: { purpose: 'Transparent timeline and price (cited by AI answers)', intent: `How much does ${s.name.toLowerCase()} cost?`, lenses: ['GEO', 'AEO'] },
+      bp: { purpose: 'Transparent timeline and price (cited by AI answers)', intent: `How much does ${s.name} cost?`, lenses: ['GEO', 'AEO'] },
     },
     { kind: 'slot', name: 'case', heading: 'What does this look like in practice?', bp: { purpose: 'Proof: related case study', intent: 'Examples of this service', lenses: ['GEO', 'GSEO'], cta: 'Read case study' } },
   ];
