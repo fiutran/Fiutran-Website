@@ -118,5 +118,5 @@
   .bp-status-final { @apply bg-black text-white; }
   html.blueprint .answer-block { outline: 3px dashed #111; outline-offset: 4px; }
   html.blueprint [data-schema] { outline: 2px dotted #595959; outline-offset: 6px; }
-  html.blueprint main a[href^='/'] { outline: 1px solid #111; background: #e8e8e8; }
+  html.blueprint main a[href^='/'] { outline: 2px solid #111; outline-offset: 1px; }
 }

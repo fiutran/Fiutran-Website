@@ -7,7 +7,8 @@ function Node({ p }: { p: PageEntry }) {
   const kids = pages.filter((c) => c.parent === p.path && c.path !== '/');
   const link = (
     <span className="inline-flex flex-wrap items-center gap-2">
-      <Link href={p.path === '/404/' ? '/404.html' : p.path}>{label(p)}</Link>
+      {/* the 404 page is linked with a plain anchor: a prefetching Link to it would 404 */}
+      {p.path === '/404/' ? <a href="/404/">{label(p)}</a> : <Link href={p.path}>{label(p)}</Link>}
       <code className="text-xs text-g-600">{p.path}</code>
       <span className={`bp-badge bp-status-${p.status} text-[10px]`}>{p.status}</span>
       {p.noindex && <span className="bp-badge text-[10px]">noindex</span>}

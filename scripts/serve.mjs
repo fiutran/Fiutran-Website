@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { OUT } from './lib.mjs';
 
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.woff2': 'font/woff2' };
@@ -23,7 +24,19 @@ export function serve(port = 4321) {
     }
     const ext = path.extname(f);
     const cache = p.startsWith('/_next/static/') ? 'public, max-age=31536000, immutable' : 'no-cache';
-    res.writeHead(200, { 'Content-Type': types[ext] ?? 'application/octet-stream', 'Cache-Control': cache });
+    const headers = { 'Content-Type': types[ext] ?? 'application/octet-stream', 'Cache-Control': cache, Vary: 'Accept-Encoding' };
+    // compress text like any production static host (Vercel, Netlify, Cloudflare) does
+    const enc = req.headers['accept-encoding'] ?? '';
+    const text = /text|javascript|json|xml|svg/.test(headers['Content-Type']);
+    if (text && enc.includes('br')) {
+      res.writeHead(200, { ...headers, 'Content-Encoding': 'br' });
+      return fs.createReadStream(f).pipe(zlib.createBrotliCompress()).pipe(res);
+    }
+    if (text && enc.includes('gzip')) {
+      res.writeHead(200, { ...headers, 'Content-Encoding': 'gzip' });
+      return fs.createReadStream(f).pipe(zlib.createGzip()).pipe(res);
+    }
+    res.writeHead(200, headers);
     fs.createReadStream(f).pipe(res);
   });
   return new Promise((r) => server.listen(port, () => r(server)));

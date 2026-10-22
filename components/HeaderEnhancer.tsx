@@ -11,7 +11,10 @@ export function HeaderEnhancer() {
   useEffect(() => {
     const close = (e: Event) => {
       document.querySelectorAll<HTMLDetailsElement>('[data-nav-menu][open]').forEach((d) => {
-        if (e instanceof KeyboardEvent ? e.key === 'Escape' : !d.contains(e.target as Node)) d.open = false;
+        const t = e.target as HTMLElement;
+        const outside = !d.contains(t);
+        const linkInside = !outside && !!t.closest('a');
+        if (e instanceof KeyboardEvent ? e.key === 'Escape' : outside || linkInside) d.open = false;
       });
     };
     document.addEventListener('click', close);

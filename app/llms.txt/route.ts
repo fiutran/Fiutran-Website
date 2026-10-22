@@ -28,7 +28,7 @@ export function GET() {
     `> ${entity.description}`,
     '',
     entity.notA,
-    `${entity.name} also builds its own product, Fiunify (${entity.products[0].description.replace(/^Fiutran’s own product: /, '')}), and runs ${entity.community.name}.`,
+    `${entity.name} also builds its own product, Fiunify (${entity.products[0].description.replace(/^Fiutran’s own product: /, '').replace(/\.$/, '')}), and runs ${entity.community.name}.`,
     `For verified company facts, see ${absoluteUrl('/fiutran-at-a-glance/')}.`,
     '',
   ];
